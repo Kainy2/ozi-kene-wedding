@@ -44,12 +44,21 @@ export default function FaqSection() {
                     </span>
                   </div>
                   <div className="space-y-2 text-sm text-gray-700">
-                    <p>
-                      <span className="font-medium">Account Name:</span> {account.accountName}
-                    </p>
-                    <p>
-                      <span className="font-medium">Account Number:</span> {account.accountNumber}
-                    </p>
+                    {account.accountName && (   
+                      <p>
+                        <span className="font-medium">Account Name:</span> {account.accountName}
+                      </p>
+                    )}
+                    {account.accountNumber && (
+                      <p>
+                        <span className="font-medium">Account Number:</span> {account.accountNumber}
+                      </p>
+                    )}
+                    {account.email && (
+                      <p>
+                        <span className="font-medium">Email:</span> {account.email}
+                      </p>
+                    )}
                     {account.swiftCode && (
                       <p>
                         <span className="font-medium">SWIFT Code:</span> {account.swiftCode}

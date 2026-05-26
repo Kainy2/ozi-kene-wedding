@@ -73,8 +73,9 @@ export interface WeddingConfig {
     message: string;
     accounts: Array<{
       bankName: string;
-      accountName: string;
-      accountNumber: string;
+      accountName?: string;
+      accountNumber?: string;
+      email?: string;
       type: string;
       swiftCode?: string;
       additionalInfo?: string;
@@ -211,9 +212,8 @@ ABA Number: 026009593
 Intermediary bank address: 222 Broadway, New York, NY 10038, US`
       },
       {
-        bankName: "Email Transfer",
-        accountName: "ibekwekene@gmail.com",
-        accountNumber: "ibekwekene@gmail.com",
+        bankName: "Interac",
+        email: "ibekwekene@gmail.com",
         type: "Canada Only"
       }
     ]
