@@ -105,7 +105,7 @@ export function useSubmitRsvp() {
                 weddingDate: config.events.day1.date,
                 venueAddress: config.events.day1.church.address,
                 venueMapLink: config.events.day1.church.mapLink,
-                inviteImageUrl: import.meta.env.VITE_INVITE_IMAGE_URL,
+                inviteImageUrl: `${window.location.origin}/images/Ozi%27s%20Wedding-Invite%20Design%20%28Inside%29.jpg`,
                 inviteToken: guestId,
                 inviteBaseUrl: window.location.origin,
               });
@@ -160,7 +160,7 @@ export function useSubmitRsvp() {
               weddingDate: config.events.day1.date,
               venueAddress: config.events.day1.church.address,
               venueMapLink: config.events.day1.church.mapLink,
-              inviteImageUrl: import.meta.env.VITE_INVITE_IMAGE_URL,
+              inviteImageUrl: `${window.location.origin}/images/Ozi%27s%20Wedding-Invite%20Design%20%28Inside%29.jpg`,
               inviteToken: guest.inviteToken,
               inviteBaseUrl: window.location.origin,
             });

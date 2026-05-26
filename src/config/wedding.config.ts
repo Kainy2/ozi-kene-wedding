@@ -41,6 +41,8 @@ export interface WeddingConfig {
   };
   assets: {
     logo: string;
+    logoWhite: string;
+    logoBlack: string;
     heroImages: string[];
     storyBrideImage: string;
     storyGroomImage: string;
@@ -92,9 +94,9 @@ export const weddingConfig: WeddingConfig = {
       church: {
         time: "11:00 AM",
         name: "Chapel of Grace and Knowledge, Anglican Church",
-        address: "A.C.M.G.S school road, Elelenwo, Port Harcourt",
+        address: "Chapel of Grace and Knowledge, Elelenwo, Port Harcourt",
         embedUrl: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5525396923304!2d7.071420099999999!3d4.84661285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069cd42b0db56d7%3A0x33ee6073add19dc6!2sArcheacon%20Crowther%20Memorial%20Girls%20School%2C%20Mission%20Rd%2C%20Umurolu%2C%20Elelenwa%20500102%2C%20Rivers!5e0!3m2!1sen!2sng!4v1778548727975!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
-        mapLink: "https://maps.google.com/?q=Archeacon+Crowther+Memorial+Girls+School+Elelenwa"
+        mapLink: "https://maps.app.goo.gl/3SzbFHFBMTfMraLd6"
       },
       reception: {
         time: "2:30 PM",
@@ -115,38 +117,38 @@ export const weddingConfig: WeddingConfig = {
       thanksgiving: {
         time: "8:00 AM",
         name: "Wedding Thanksgiving - Chapel of Grace and Knowledge Anglican Church",
-        address: "A.C.M.G.S school road, Elelenwo, Port Harcourt",
+        address: "Chapel of Grace and Knowledge, Elelenwo, Port Harcourt",
         embedUrl: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5525396923304!2d7.071420099999999!3d4.84661285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069cd42b0db56d7%3A0x33ee6073add19dc6!2sArcheacon%20Crowther%20Memorial%20Girls%20School%2C%20Mission%20Rd%2C%20Umurolu%2C%20Elelenwa%20500102%2C%20Rivers!5e0!3m2!1sen!2sng!4v1778548727975!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
-        mapLink: "https://maps.google.com/?q=Archeacon+Crowther+Memorial+Girls+School+Elelenwa"
+        mapLink: "https://maps.app.goo.gl/3SzbFHFBMTfMraLd6"
       }
     }
   },
   assets: {
-    logo: "/Ozi's Wedding Logo (Version 1).jpg",
+    logo: "/Wedding Logo (white).png",
+    logoWhite: "/Wedding Logo (white).png",
+    logoBlack: "/Wedding Logo (black) .png",
     heroImages: [
-      "/images/proposal-images/ACP_3101.jpg",
-      "/images/proposal-images/ACP_3105.jpg",
-      "/images/proposal-images/ACP_3115.jpg",
-      "/images/proposal-images/ACP_3125.jpg",
-      "/images/proposal-images/ACP_3135.jpg"
+      "/images/ozi-kene-proposal-images/095a8dfc-2fdd-4496-b475-0830b93933cc.JPG",
+      "/images/ozi-kene-proposal-images/31339d89-e333-4d51-a9ca-de605a6e472d.JPG",
+      "/images/ozi-kene-proposal-images/4c50efae-16bc-47fd-abfd-86638d9b88ea.JPG",
+      "/images/ozi-kene-proposal-images/9cb35f4d-9d5d-4081-9223-97dcc4314244.JPG",
+      "/images/ozi-kene-proposal-images/f29e2a1d-d17b-468b-b95b-2e99cad85aef.JPG"
     ],
-    storyBrideImage: "/images/proposal-images/ACP_3140.jpg",
-    storyGroomImage: "/images/proposal-images/ACP_3150.jpg",
-    weddingDetailsBackground: "/images/proposal-images/ACP_3120.jpg",
-    closingSectionBackground: "/images/proposal-images/ACP_3180.jpg"
+    storyBrideImage: "/images/ozi-kene-proposal-images/a2e83759-1802-4f6c-87ff-2b6ee815f4af.JPG",
+    storyGroomImage: "/images/ozi-kene-proposal-images/b317c680-4fa5-4785-8066-48c4e90733f6.JPG",
+    weddingDetailsBackground: "/images/ozi-kene-proposal-images/69d37690-82eb-4d5e-8867-8a41bff841b3.JPG",
+    closingSectionBackground: "/images/ozi-kene-proposal-images/836a8d83-f919-4b2e-a331-445bc224fb24.JPG"
   },
   colors: [
-    { name: "Olive Green", hex: "#6B8E23", role: "primary" },
-    { name: "Onion Purple", hex: "#AE6578", role: "secondary" },
-    { name: "Peach", hex: "#FFD7BE", role: "accent" },
-    { name: "Navy Blue", hex: "#001F3F", role: "accent" },
+    { name: "Olive Green", hex: "#636B2F", role: "primary" },
+    { name: "Onion Purple", hex: "#BE5EA5", role: "secondary" },
+    { name: "Peach", hex: "#FFD3AC", role: "accent" },
+    { name: "Navy Blue", hex: "#000080", role: "accent" },
     { name: "Nude", hex: "#E8BEAC", role: "accent" }
   ],
   content: {
     welcomeMessage: "Welcome to our Wedding website; with hearts full of joy, we welcome you to celebrate in our joy and share in the most meaningful days of our life. You will find all the details of our wedding day and the celebration we're so excited to share",
-    brideStory: `I was invited to the wedding of one of my Sister's classmate, of which I reluctantly came for, unlike me, who is usually the first to be present at a social gathering. I hadn't planned for it, but she pleaded that I joined her so she won't be alone. Getting to the Venue, I sat across a guy who seemed very lively and she had earlier told me about him and how he can be a troublemaker and funny.. so I didn't mind having as a friend who could make me laugh. Throughout the event, we didn't talk, we just greeted after my sister did an introduction. After the wedding ceremony, on our way out, he approached and we exchanged contacts. It has led us to this moment.
-
-P.S He still looks for my trouble and makes me laugh till this day 😂`,
+    brideStory: `I was invited to the wedding of one of my Sister's classmates, of which I reluctantly decided to attend, unlike me, who is usually the first to suggest attending social events. I hadn't planned for it, but she pleaded with me to join her so she wouldn't be alone. When we arrived at the Venue, I sat across from a guy who seemed very lively and she had told me earlier about him and how he can be a troublemaker and funny.. so I didn't mind having him as a friend who could make me laugh. Throughout the event, we didn't talk, we just exchanged pleasantries after my sister did an introduction. After the wedding ceremony, on our way out, he approached me and we exchanged contacts. That encounter was the beginning of something so beautiful and precious and the beginning of Forever and Always for us.`,
     groomStory: `So it happened July 2022, at a secondary school classmates wedding, I and chimdi(Her sister) for some weird reason had connected again and I say weird because we were in different social circles in school and didn't speak at all, I don't even think we had a proper conversation through out secondary school and suddenly we got connected, don't even remember how, we went for dinner and talked, this was at a stage in my life when I wanted something very serious that would lead to marriage so I was open minded, back to the story, I and Chimdi spoke at length and caught up and then just stayed in touch, so on the day of the wedding I reached out to her if she would be attending and she said yeah and she asked me if I was coming alone, I said I was coming with another classmate(a guy) but hopefully I would not leave alone, she told me she was coming with her sister, and that was it, at the wedding i saw Ozi and she just had this innocent energy around her and then she smiled for the first time and I finally understood why people in movies claimed to fall in love after some random smile from a beautiful lady, the event went on and then we went outside to take pictures, she wasn't shy or anything she was quite outspoken and confident, I had told my friend I came with that I was interested in her and would take her number, so at this point he asked if I was going to or should he (Lol), I told him I just wanted to see her smile one more time and then she smiled and that was it for me.`,
     closingMessage: "We can't wait to celebrate with you",
     rsvpDeadline: "August 12, 2026"
@@ -209,7 +211,7 @@ ABA Number: 026009593
 Intermediary bank address: 222 Broadway, New York, NY 10038, US`
       },
       {
-        bankName: "Interac",
+        bankName: "Email Transfer",
         accountName: "ibekwekene@gmail.com",
         accountNumber: "ibekwekene@gmail.com",
         type: "Canada Only"

@@ -82,13 +82,6 @@ function generateRsvpConfirmationEmail(params: SendEmailParams): string {
 <body style="margin: 0; padding: 0; font-family: Georgia, serif; background-color: #faf8f5;">
   <div style="max-width: 600px; margin: 0 auto; padding: 40px 20px;">
 
-    ${params.inviteImageUrl ? `
-    <div style="margin-bottom: 32px; text-align: center;">
-      <img src="${params.inviteImageUrl}" alt="Wedding Invitation"
-           style="max-width: 100%; height: auto; border-radius: 8px;" />
-    </div>
-    ` : ''}
-
     <h1 style="color: #5a4a3a; text-align: center; margin-bottom: 16px;">
       Dear ${params.guestName},
     </h1>
@@ -127,6 +120,13 @@ function generateRsvpConfirmationEmail(params: SendEmailParams): string {
         Open in Maps
       </a>
     </div>
+
+    ${params.inviteImageUrl ? `
+    <div style="margin: 32px 0; text-align: center;">
+      <img src="${params.inviteImageUrl}" alt="Wedding Invitation"
+           style="max-width: 100%; height: auto; border-radius: 8px;" />
+    </div>
+    ` : ''}
 
     <p style="color: #8b7d6f; text-align: center; font-size: 14px; margin: 16px 0;">
       📅 A calendar file (.ics) is attached to this email. Click it to add the event to your calendar.

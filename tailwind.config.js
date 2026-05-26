@@ -8,11 +8,12 @@ export default {
     extend: {
       colors: {
         wedding: {
-          primary: '#6B8E23',    // Olive green (PRIMARY)
-          secondary: '#AE6578',  // Onion purple (SECONDARY)
-          peach: '#FFD7BE',      // Accent
-          navy: '#001F3F',       // Accent
-          nude: '#E8BEAC',       // Accent
+          primary: '#636B2F',    // Olive green (PRIMARY)
+          secondary: '#BE5EA5',  // Onion purple/magenta (SECONDARY)
+          peach: '#FFD3AC',      // Peach (accent)
+          navy: '#000080',       // Navy blue (accent)
+          nude: '#E8BEAC',       // Nude (accent)
+          charcoal: '#3A3A3A',   // Dark charcoal (text/dark uses)
           cream: '#FAF8F5',      // Background
         },
       },

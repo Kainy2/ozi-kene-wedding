@@ -9,11 +9,11 @@ interface HeroSlideshowProps {
 
 // Placeholder gradient backgrounds for when images aren't loaded
 const placeholderGradients = [
-  'linear-gradient(135deg, #6B8E23 0%, #AE6578 100%)',
-  'linear-gradient(135deg, #AE6578 0%, #FFD7BE 100%)',
-  'linear-gradient(135deg, #FFD7BE 0%, #E8BEAC 100%)',
-  'linear-gradient(135deg, #E8BEAC 0%, #001F3F 100%)',
-  'linear-gradient(135deg, #001F3F 0%, #6B8E23 100%)',
+  'linear-gradient(135deg, #636B2F 0%, #BE5EA5 100%)',
+  'linear-gradient(135deg, #BE5EA5 0%, #FFD3AC 100%)',
+  'linear-gradient(135deg, #FFD3AC 0%, #E8BEAC 100%)',
+  'linear-gradient(135deg, #E8BEAC 0%, #000080 100%)',
+  'linear-gradient(135deg, #000080 0%, #636B2F 100%)',
 ];
 
 export default function HeroSlideshow({ images, logo, coupleNames }: HeroSlideshowProps) {
@@ -73,7 +73,7 @@ export default function HeroSlideshow({ images, logo, coupleNames }: HeroSlidesh
       </AnimatePresence>
 
       {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60" />
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-between py-12 md:py-16">

@@ -22,7 +22,7 @@ export default function MapSection() {
               </h3>
               <p className="text-gray-700 mb-4">{config.events.day1.church.name}</p>
               <div
-                className="rounded-lg overflow-hidden shadow-lg"
+                className="rounded-lg overflow-hidden shadow-lg w-full [&_iframe]:w-full [&_iframe]:block [&_iframe]:max-w-full"
                 dangerouslySetInnerHTML={{ __html: config.events.day1.church.embedUrl }}
               />
               {config.events.day1.church.mapLink && (
@@ -48,7 +48,7 @@ export default function MapSection() {
               {config.events.day1.reception.embedUrl ? (
                 <>
                   <div
-                    className="rounded-lg overflow-hidden shadow-lg"
+                    className="rounded-lg overflow-hidden shadow-lg w-full [&_iframe]:w-full [&_iframe]:block [&_iframe]:max-w-full"
                     dangerouslySetInnerHTML={{ __html: config.events.day1.reception.embedUrl }}
                   />
                   {config.events.day1.reception.mapLink && (
