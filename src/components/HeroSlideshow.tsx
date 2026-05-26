@@ -66,7 +66,7 @@ export default function HeroSlideshow({ images, logo, coupleNames }: HeroSlidesh
             <img
               src={images[currentIndex]}
               alt={`Wedding photo ${currentIndex + 1}`}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-[center_25%]"
             />
           )}
         </motion.div>

@@ -7,7 +7,7 @@ export default function ClosingSection() {
   return (
     <section
       id="closing"
-      className="py-32 px-6 bg-cover bg-center bg-fixed relative min-h-[60vh] flex items-center justify-center"
+      className="py-32 px-6 bg-cover bg-top bg-fixed relative min-h-[60vh] flex items-center justify-center"
       style={{ backgroundImage: `url(${config.assets.closingSectionBackground})` }}
     >
       {/* Overlay */}
