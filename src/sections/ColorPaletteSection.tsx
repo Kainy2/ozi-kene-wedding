@@ -24,7 +24,8 @@ export default function ColorPaletteSection() {
                 <ColorSwatch
                   name={color.name}
                   hex={color.hex}
-                  role={color.role}
+                  role="accent"
+                  // role={color.role}
                 />
               </div>
             ))}
