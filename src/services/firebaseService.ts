@@ -165,8 +165,14 @@ export async function regenerateToken(guestId: string): Promise<string> {
 export async function sendApprovalEmail(guest: Guest, config: {
   title: string;
   date: string;
-  venueAddress: string;
-  venueMapLink: string;
+  churchName: string;
+  churchAddress: string;
+  churchTime: string;
+  churchMapLink: string;
+  receptionName: string;
+  receptionAddress: string;
+  receptionTime: string;
+  receptionMapLink: string;
 }) {
   const { sendRsvpConfirmation } = await import('../lib/brevo');
 
@@ -176,9 +182,17 @@ export async function sendApprovalEmail(guest: Guest, config: {
       guestName: guest.name,
       weddingTitle: config.title,
       weddingDate: config.date,
-      venueAddress: config.venueAddress,
-      venueMapLink: config.venueMapLink,
+      churchName: config.churchName,
+      churchAddress: config.churchAddress,
+      churchTime: config.churchTime,
+      churchMapLink: config.churchMapLink,
+      receptionName: config.receptionName,
+      receptionAddress: config.receptionAddress,
+      receptionTime: config.receptionTime,
+      receptionMapLink: config.receptionMapLink,
       inviteImageUrl: import.meta.env.VITE_INVITE_IMAGE_URL,
+      inviteToken: guest.inviteToken,
+      inviteBaseUrl: window.location.origin,
     });
 
     // Mark email as sent

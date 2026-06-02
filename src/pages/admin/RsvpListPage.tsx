@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { weddingConfig } from '../../config/wedding.config';
 import { motion } from 'framer-motion';
 import { Search, Trash2, RefreshCw, Check, X, Clock } from 'lucide-react';
 import * as firebaseService from '../../services/firebaseService';
@@ -82,10 +83,16 @@ export default function RsvpListPage() {
       // Send email only if guest is ATTENDING and has email
       if (guest && guest.email && rsvp?.status === 'ATTENDING') {
         const config = {
-          title: import.meta.env.VITE_WEDDING_TITLE || "The Forever Affair '26: Elma & Kainy",
-          date: import.meta.env.VITE_WEDDING_DATE || '2026-04-04 00:00',
-          venueAddress: import.meta.env.VITE_VENUE_ADDRESS || 'Astro Halls, Port Harcourt, Nigeria',
-          venueMapLink: import.meta.env.VITE_VENUE_MAP_LINK || 'https://maps.google.com/?q=Astro+Halls+Port+Harcourt',
+          title: `${weddingConfig.couple.bride} & ${weddingConfig.couple.groom}`,
+          date: weddingConfig.events.day1.date,
+          churchName: weddingConfig.events.day1.church.name,
+          churchAddress: weddingConfig.events.day1.church.address,
+          churchTime: weddingConfig.events.day1.church.time,
+          churchMapLink: weddingConfig.events.day1.church.mapLink,
+          receptionName: weddingConfig.events.day1.reception.name,
+          receptionAddress: weddingConfig.events.day1.reception.address,
+          receptionTime: weddingConfig.events.day1.reception.time,
+          receptionMapLink: weddingConfig.events.day1.reception.mapLink,
         };
 
         const emailSent = await firebaseService.sendApprovalEmail(guest, config);
