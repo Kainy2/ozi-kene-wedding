@@ -24,6 +24,19 @@ interface SendEmailParams {
   inviteBaseUrl?: string;
 }
 
+async function fetchImageAsBase64(url: string): Promise<{ base64: string; contentType: string } | null> {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) return null;
+    const contentType = response.headers.get('content-type') || 'image/jpeg';
+    const buffer = await response.arrayBuffer();
+    const base64 = btoa(String.fromCharCode(...new Uint8Array(buffer)));
+    return { base64, contentType };
+  } catch {
+    return null;
+  }
+}
+
 export async function sendRsvpConfirmation(params: SendEmailParams) {
   // Validate required env vars
   if (!BREVO_API_KEY) {
@@ -35,7 +48,23 @@ export async function sendRsvpConfirmation(params: SendEmailParams) {
     throw new Error('Sender email not configured');
   }
 
-  const emailHtml = generateRsvpConfirmationEmail(params);
+  // Fetch invite image and embed as base64 inline attachment
+  let inviteImageCid: string | undefined;
+  const attachments: Array<{ content: string; name: string; contentId?: string }> = [];
+
+  if (params.inviteImageUrl) {
+    const imageData = await fetchImageAsBase64(params.inviteImageUrl);
+    if (imageData) {
+      inviteImageCid = 'invite-card';
+      attachments.push({
+        content: imageData.base64,
+        name: 'invite-card.jpg',
+        contentId: inviteImageCid,
+      });
+    }
+  }
+
+  const emailHtml = generateRsvpConfirmationEmail({ ...params, inviteImageCid });
 
   // Generate ICS calendar file
   const icsContent = generateWeddingICS({
@@ -44,6 +73,10 @@ export async function sendRsvpConfirmation(params: SendEmailParams) {
     address: params.churchAddress,
   });
   const icsBase64 = icsToBase64(icsContent);
+  attachments.push({
+    content: icsBase64,
+    name: `${params.weddingHashtag.toLowerCase().replace(/\s+/g, '-') || 'wedding'}-invite.ics`,
+  });
 
   console.log('Brevo: Sending email to', params.to, 'with calendar attachment');
 
@@ -62,13 +95,7 @@ export async function sendRsvpConfirmation(params: SendEmailParams) {
       to: [{ email: params.to, name: params.guestName }],
       subject: `You're invited — ${params.weddingTitle} Wedding`,
       htmlContent: emailHtml,
-      attachment: [
-        {
-          content: icsBase64,
-          // name: 'the-forever-affair-invite.ics',
-          name: `${params.weddingHashtag.toLowerCase().replace(/\s+/g, '-') || 'wedding'}-invite.ics`,
-        }
-      ],
+      attachment: attachments,
     }),
   });
 
@@ -83,7 +110,7 @@ export async function sendRsvpConfirmation(params: SendEmailParams) {
   return result;
 }
 
-function generateRsvpConfirmationEmail(params: SendEmailParams): string {
+function generateRsvpConfirmationEmail(params: SendEmailParams & { inviteImageCid?: string }): string {
   const qrUrl = params.inviteToken && params.inviteBaseUrl
     ? `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(params.inviteBaseUrl + '/rsvp/' + params.inviteToken)}`
     : null;
@@ -150,9 +177,9 @@ function generateRsvpConfirmationEmail(params: SendEmailParams): string {
     </div>
 
     <!-- Invite card -->
-    ${params.inviteImageUrl ? `
+    ${params.inviteImageCid || params.inviteImageUrl ? `
     <div style="margin-bottom: 28px; text-align: center;">
-      <img src="${params.inviteImageUrl}" alt="Wedding Invitation"
+      <img src="${params.inviteImageCid ? `cid:${params.inviteImageCid}` : params.inviteImageUrl}" alt="Wedding Invitation"
            style="max-width: 100%; height: auto; border-radius: 8px;" />
     </div>
     ` : ''}
