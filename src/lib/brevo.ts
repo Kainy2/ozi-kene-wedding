@@ -8,6 +8,7 @@ const SENDER_EMAIL = import.meta.env.VITE_SENDER_EMAIL;
 interface SendEmailParams {
   to: string;
   guestName: string;
+  weddingHashtag: string;
   weddingTitle: string;
   weddingDate: string;
   churchName: string;
@@ -64,7 +65,8 @@ export async function sendRsvpConfirmation(params: SendEmailParams) {
       attachment: [
         {
           content: icsBase64,
-          name: 'the-forever-affair-invite.ics',
+          // name: 'the-forever-affair-invite.ics',
+          name: `${params.weddingHashtag.toLowerCase().replace(/\s+/g, '-') || 'wedding'}-invite.ics`,
         }
       ],
     }),

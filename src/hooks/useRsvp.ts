@@ -101,6 +101,7 @@ export function useSubmitRsvp() {
               await sendRsvpConfirmation({
                 to: email,
                 guestName: name,
+                weddingHashtag: config.couple.hashTag,
                 weddingTitle: `${config.couple.bride} & ${config.couple.groom}`,
                 weddingDate: config.events.day1.date,
                 churchName: config.events.day1.church.name,
@@ -162,6 +163,7 @@ export function useSubmitRsvp() {
             await sendRsvpConfirmation({
               to: email,
               guestName: name,
+              weddingHashtag: config.couple.hashTag,
               weddingTitle: `${config.couple.bride} & ${config.couple.groom}`,
               weddingDate: config.events.day1.date,
               churchName: config.events.day1.church.name,

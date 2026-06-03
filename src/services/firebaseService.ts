@@ -180,6 +180,7 @@ export async function sendApprovalEmail(guest: Guest, config: {
     await sendRsvpConfirmation({
       to: guest.email,
       guestName: guest.name,
+      weddingHashtag: config.title,
       weddingTitle: config.title,
       weddingDate: config.date,
       churchName: config.churchName,

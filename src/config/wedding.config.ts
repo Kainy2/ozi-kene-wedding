@@ -3,6 +3,7 @@ export interface WeddingConfig {
     bride: string;
     groom: string;
     displayName: string;
+    hashTag: string;
   };
   events: {
     day1: {
@@ -87,7 +88,8 @@ export const weddingConfig: WeddingConfig = {
   couple: {
     bride: "Ozioma",
     groom: "Kenechukwu",
-    displayName: "Ozioma & Kenechukwu"
+    displayName: "Ozioma & Kenechukwu",
+    hashTag: "KOMagic '26"
   },
   events: {
     day1: {
