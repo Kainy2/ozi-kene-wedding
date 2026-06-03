@@ -119,10 +119,10 @@ export const weddingConfig: WeddingConfig = {
       date: "September 13, 2026",
       thanksgiving: {
         time: "8:00 AM",
-        name: "Wedding Thanksgiving - Chapel of Grace and Knowledge Anglican Church",
-        address: "Chapel of Grace and Knowledge, Elelenwo, Port Harcourt",
-        embedUrl: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5525396923304!2d7.071420099999999!3d4.84661285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069cd42b0db56d7%3A0x33ee6073add19dc6!2sArcheacon%20Crowther%20Memorial%20Girls%20School%2C%20Mission%20Rd%2C%20Umurolu%2C%20Elelenwa%20500102%2C%20Rivers!5e0!3m2!1sen!2sng!4v1778548727975!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
-        mapLink: "https://maps.app.goo.gl/3SzbFHFBMTfMraLd6"
+        name: "Wedding Thanksgiving - RCCG Kings' Palace",
+        address: "RCCG Kings' Palace, Port-Harcourt, Rivers State",
+        embedUrl: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.752628544709!2d6.9966637!3d4.8124839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069ce862235916b%3A0x2e4780f48a35a231!2sRCCG%20Kings&#39;%20Palace%2C%20Rivers%20Province%20II.!5e0!3m2!1sen!2sng!4v1780507061077!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+        mapLink: "https://maps.app.goo.gl/SWmvenZCU3Zy4iVs7"
       }
     }
   },
