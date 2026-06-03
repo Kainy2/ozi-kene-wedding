@@ -191,7 +191,7 @@ export async function sendApprovalEmail(guest: Guest, config: {
       receptionAddress: config.receptionAddress,
       receptionTime: config.receptionTime,
       receptionMapLink: config.receptionMapLink,
-      inviteImageUrl: import.meta.env.VITE_INVITE_IMAGE_URL,
+      inviteImageUrl: `${window.location.origin}/images/invite-card.jpg`,
       inviteToken: guest.inviteToken,
       inviteBaseUrl: window.location.origin,
     });

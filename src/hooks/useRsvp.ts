@@ -112,7 +112,7 @@ export function useSubmitRsvp() {
                 receptionAddress: config.events.day1.reception.address,
                 receptionTime: config.events.day1.reception.time,
                 receptionMapLink: config.events.day1.reception.mapLink,
-                inviteImageUrl: `${window.location.origin}/images/Ozi%27s%20Wedding-Invite%20Design%20%28Inside%29.jpg`,
+                inviteImageUrl: `${window.location.origin}/images/invite-card.jpg`,
                 inviteToken: guestId,
                 inviteBaseUrl: window.location.origin,
               });
@@ -174,7 +174,7 @@ export function useSubmitRsvp() {
               receptionAddress: config.events.day1.reception.address,
               receptionTime: config.events.day1.reception.time,
               receptionMapLink: config.events.day1.reception.mapLink,
-              inviteImageUrl: `${window.location.origin}/images/Ozi%27s%20Wedding-Invite%20Design%20%28Inside%29.jpg`,
+              inviteImageUrl: `${window.location.origin}/images/invite-card.jpg`,
               inviteToken: guest.inviteToken,
               inviteBaseUrl: window.location.origin,
             });
