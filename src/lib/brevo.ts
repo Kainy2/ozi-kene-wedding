@@ -79,6 +79,24 @@ export async function sendRsvpConfirmation(params: SendEmailParams) {
   });
 
   console.log('Brevo: Sending email to', params.to, 'with calendar attachment');
+  console.log('Brevo sent data:',{
+    method: 'POST',
+    headers: {
+      'accept': 'application/json',
+      'api-key': BREVO_API_KEY,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      sender: {
+        name: SENDER_NAME || 'Wedding Invitation',
+        email: SENDER_EMAIL,
+      },
+      to: [{ email: params.to, name: params.guestName }],
+      subject: `You're invited — ${params.weddingTitle} Wedding`,
+      htmlContent: emailHtml,
+      attachment: attachments,
+    }),
+  });
 
   const response = await fetch(BREVO_API_URL, {
     method: 'POST',

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import MainPage from './pages/MainPage';
+import RsvpPage from './pages/RsvpPage';
 import AdminLoginPage from './pages/admin/AdminLoginPage';
 import DashboardPage from './pages/admin/DashboardPage';
 import RsvpListPage from './pages/admin/RsvpListPage';
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           {/* Main single-page routes */}
           <Route path="/" element={<MainPage />} />
-          <Route path="/rsvp/:guestId" element={<MainPage />} />
+          <Route path="/rsvp/:guestId" element={<RsvpPage />} />
 
           {/* Admin routes */}
           <Route path="/admin/login" element={<AdminLoginPage />} />
