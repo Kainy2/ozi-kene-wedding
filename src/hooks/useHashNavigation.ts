@@ -1,4 +1,20 @@
+import { useEffect } from 'react';
+
 export function useHashNavigation() {
+  // Scroll to hash on initial page load/refresh
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      const timer = setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   const navigateToSection = (sectionId: string) => {
     // Update the hash in the URL
     window.location.hash = sectionId;
