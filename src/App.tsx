@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import MainPage from './pages/MainPage';
 import RsvpPage from './pages/RsvpPage';
@@ -16,6 +16,7 @@ function App() {
         <Routes>
           {/* Main single-page routes */}
           <Route path="/" element={<MainPage />} />
+          <Route path="/food-menu" element={<Navigate to="/" replace />} />
           <Route path="/rsvp/:guestId" element={<RsvpPage />} />
 
           {/* Admin routes */}
