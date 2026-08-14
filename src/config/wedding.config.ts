@@ -82,6 +82,12 @@ export interface WeddingConfig {
       additionalInfo?: string;
     }>;
   };
+  foodMenu?: {
+    sections: Array<{
+      title: string;
+      items: string[];
+    }>;
+  };
 }
 
 export const weddingConfig: WeddingConfig = {
@@ -217,6 +223,50 @@ Intermediary bank address: 222 Broadway, New York, NY 10038, US`
         bankName: "Interac",
         email: "ibekwekene@gmail.com",
         type: "Canada Only"
+      }
+    ]
+  },
+  foodMenu: {
+    sections: [
+      {
+        title: "The Menu Proper",
+        items: [
+          "Special fried rice",
+          "Party jollof rice",
+          "Coconut rice",
+          "Singapore noodles served with shredded beef sauce in hot plate"
+        ]
+      },
+      {
+        title: "Sides for Rice Meals",
+        items: [
+          "Vegetarian salad",
+          "Moimoi",
+          "Sweet corn cobs"
+        ]
+      },
+      {
+        title: "Protein",
+        items: [
+          "Peppered chicken",
+          "Peppered croaker fish"
+        ]
+      },
+      {
+        title: "Nigerian Dishes",
+        items: [
+          "Plantain porridge / Yam porridge",
+          "Afang soup",
+          "Egusi soup",
+          "Eba, semo, fufu"
+        ]
+      },
+      {
+        title: "Protein",
+        items: [
+          "Goat meat",
+          "Cow head"
+        ]
       }
     ]
   }

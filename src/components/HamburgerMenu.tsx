@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useHashNavigation } from '../hooks/useHashNavigation';
@@ -112,6 +113,19 @@ export default function HamburgerMenu() {
                     </button>
                   </motion.li>
                 ))}
+                <motion.li
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: menuItems.length * 0.05 }}
+                >
+                  <Link
+                    to="/food-menu"
+                    onClick={() => setIsOpen(false)}
+                    className="block w-full text-left text-lg font-serif py-3 px-4 rounded-lg transition-colors text-wedding-navy hover:bg-wedding-nude"
+                  >
+                    Food Menu
+                  </Link>
+                </motion.li>
               </ul>
             </nav>
           </motion.div>
