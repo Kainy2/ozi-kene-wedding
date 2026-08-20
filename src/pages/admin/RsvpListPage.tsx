@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { weddingConfig } from '../../config/wedding.config';
 import { motion } from 'framer-motion';
-import { Search, Trash2, RefreshCw, Check, X, Clock } from 'lucide-react';
+import { Search, Trash2, RefreshCw, Check, X, Clock, Mail } from 'lucide-react';
 import * as firebaseService from '../../services/firebaseService';
 
 type FilterStatus = 'approved-attending' | 'all' | 'attending' | 'not-attending' | 'pending' | 'no-response';
@@ -124,6 +124,44 @@ export default function RsvpListPage() {
     }
   };
 
+  const handleResendEmail = async (guestId: string) => {
+    if (!confirm('Are you sure you want to resend the confirmation email?')) return;
+
+    try {
+      const guest = await firebaseService.getGuestById(guestId);
+      const rsvp = await firebaseService.getRsvpByGuestId(guestId);
+
+      if (!guest || !guest.email || rsvp?.status !== 'ATTENDING') {
+        alert('Cannot send email: guest must be attending and have an email address.');
+        return;
+      }
+
+      const config = {
+        title: `${weddingConfig.couple.bride} & ${weddingConfig.couple.groom}`,
+        date: weddingConfig.events.day1.date,
+        churchName: weddingConfig.events.day1.church.name,
+        churchAddress: weddingConfig.events.day1.church.address,
+        churchTime: weddingConfig.events.day1.church.time,
+        churchMapLink: weddingConfig.events.day1.church.mapLink,
+        receptionName: weddingConfig.events.day1.reception.name,
+        receptionAddress: weddingConfig.events.day1.reception.address,
+        receptionTime: weddingConfig.events.day1.reception.time,
+        receptionMapLink: weddingConfig.events.day1.reception.mapLink,
+      };
+
+      const emailSent = await firebaseService.sendApprovalEmail(guest, config);
+
+      if (emailSent) {
+        alert(`Email resent successfully to ${guest.email}`);
+      } else {
+        alert('Failed to resend email. Please check email configuration.');
+      }
+    } catch (error) {
+      console.error('Failed to resend email:', error);
+      alert('Failed to resend email');
+    }
+  };
+
   const handleAction = async (action: () => Promise<void>) => {
     setOpenDropdownId(null); // Close dropdown immediately
     await action();
@@ -133,7 +171,7 @@ export default function RsvpListPage() {
     return rsvps.find(r => r.guestId === guestId);
   };
 
-  const MobileActionsDropdown = ({ guest }: { guest: firebaseService.Guest }) => {
+  const MobileActionsDropdown = ({ guest, rsvp }: { guest: firebaseService.Guest; rsvp?: firebaseService.Rsvp }) => {
     const isOpen = openDropdownId === guest.id;
 
     return (
@@ -165,6 +203,15 @@ export default function RsvpListPage() {
                     Deny
                   </button>
                 </>
+              )}
+              {guest.status === 'APPROVED' && guest.email && rsvp?.status === 'ATTENDING' && (
+                <button
+                  onClick={() => handleAction(() => handleResendEmail(guest.id))}
+                  className="w-full text-left px-4 py-2 text-sm text-purple-600 hover:bg-wedding-cream flex items-center gap-2"
+                >
+                  <Mail className="w-4 h-4" />
+                  Resend Email
+                </button>
               )}
               <button
                 onClick={() => handleAction(() => handleRegenerateToken(guest.id))}
@@ -355,6 +402,16 @@ export default function RsvpListPage() {
                               </button>
                             </>
                           )}
+                          {guest.status === 'APPROVED' && guest.email && rsvp?.status === 'ATTENDING' && (
+                            <button
+                              onClick={() => handleResendEmail(guest.id)}
+                              className="text-purple-600 hover:text-purple-800"
+                              title="Resend Email"
+                              aria-label="Resend confirmation email"
+                            >
+                              <Mail className="w-4 h-4" />
+                            </button>
+                          )}
                           <button
                             onClick={() => handleRegenerateToken(guest.id)}
                             className="text-blue-600 hover:text-blue-800"
@@ -375,7 +432,7 @@ export default function RsvpListPage() {
 
                         {/* Mobile: Dropdown (shown only on mobile) */}
                         <div className="md:hidden">
-                          <MobileActionsDropdown guest={guest} />
+                          <MobileActionsDropdown guest={guest} rsvp={rsvp} />
                         </div>
                       </td>
                     </motion.tr>
