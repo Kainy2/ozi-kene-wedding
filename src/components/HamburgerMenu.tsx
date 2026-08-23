@@ -126,6 +126,19 @@ export default function HamburgerMenu() {
                     Food Menu
                   </Link>
                 </motion.li>
+                <motion.li
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: (menuItems.length + 1) * 0.05 }}
+                >
+                  <Link
+                    to="/wedding-programme"
+                    onClick={() => setIsOpen(false)}
+                    className="block w-full text-left text-lg font-serif py-3 px-4 rounded-lg transition-colors text-wedding-navy hover:bg-wedding-nude"
+                  >
+                    Wedding Programme
+                  </Link>
+                </motion.li>
               </ul>
             </nav>
           </motion.div>

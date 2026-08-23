@@ -88,6 +88,31 @@ export interface WeddingConfig {
       items: string[];
     }>;
   };
+  weddingProgramme?: {
+    cover: {
+      title: string;
+      subtitle: string;
+      brideName: string;
+      groomName: string;
+      venue: string;
+      date: string;
+    };
+    officiatingMinisters: Array<{ title: string; name: string; role?: string }>;
+    orderOfService: Array<{ number: number; title: string }>;
+    sections: Array<{
+      id: string;
+      type: 'hymn' | 'reading' | 'ceremony-text' | 'simple-list' | 'heading-only';
+      title: string;
+      subtitle?: string;
+      refrain?: string;
+      verses?: string[];
+      paragraphs?: string[];
+      items?: string[];
+      twoColumn?: boolean;
+    }>;
+    closing: { message: string };
+    watermarkImage: string;
+  };
 }
 
 export const weddingConfig: WeddingConfig = {
@@ -225,6 +250,262 @@ Intermediary bank address: 222 Broadway, New York, NY 10038, US`
         type: "Canada Only"
       }
     ]
+  },
+  weddingProgramme: {
+    cover: {
+      title: "WEDDING",
+      subtitle: "ORDER OF SERVICE FOR THE SOLEMNIZATION OF HOLY MATRIMONY BETWEEN",
+      brideName: "Ozioma Ifunanya Chike-Onyechi",
+      groomName: "Kenechukwu Victor Ibekwe",
+      venue: "CHAPEL OF GRACE & KNOWLEDGE (ANGLICAN COMMUNION), FIRST FRUITS PARISH, ELELENWO, PHC.",
+      date: "SATURDAY 12TH SEPTEMBER, 2026"
+    },
+    officiatingMinisters: [
+      { title: "Rev. Canon", name: "Ozioma Iheanetu", role: "(Vicar)" },
+      { title: "Rev.", name: "Emmanuel Onyenakazi" },
+      { title: "Rev.", name: "Boniface Onu" }
+    ],
+    orderOfService: [
+      { number: 1, title: "Processional Hymn CONH 834" },
+      { number: 2, title: "Bridal March: Hymn AMR 678" },
+      { number: 3, title: "Exhortation" },
+      { number: 4, title: "Declaration" },
+      { number: 5, title: "The Marriage" },
+      { number: 6, title: "Charge/Acclamation" },
+      { number: 7, title: "Nuptial Psalm 128" },
+      { number: 8, title: "Only Lesson Eph. 5: 21-25" },
+      { number: 9, title: "Hymn for Sermon AMR 650" },
+      { number: 10, title: "Sermon" },
+      { number: 11, title: "Anthem by the Choir" },
+      { number: 12, title: "Thanksgiving" },
+      { number: 13, title: "Hymn for Prayer A&MR 463 (O Perfect Love All Kneeling)" },
+      { number: 14, title: "Signing of Marriage Register" },
+      { number: 15, title: "Presentation of the Couple" },
+      { number: 16, title: "Closing Prayer/Benediction" },
+      { number: 17, title: "Withdrawal Hymn: The Band" },
+      { number: 18, title: "Order of Photograph" },
+      { number: 19, title: "Reception" }
+    ],
+    sections: [
+      {
+        id: "processional-hymn",
+        type: "hymn",
+        title: "Processional Hymn CONH 834",
+        refrain: "So, I'll cherish the old rugged cross,\n'til my trophies at last I lay down\nI will cling to the old rugged cross\nAnd exchange it some day for a crown",
+        verses: [
+          "1) On a hill far away stood an old rugged cross\nThe emblem of suffering and shame\nAnd I love that old cross where the dearest and best\nFor a world of lost sinners was slain",
+          "2) Oh, that old rugged cross, so despised by the world\nHas a wondrous attraction for me\nFor the dear Lamb of God left his glory above\nTo bear it to dark Calvary",
+          "3) In that old rugged cross, stained with blood so divine,\na wondrous beauty I see,\nfor 'twas on that old cross Jesus suffered and died,\nto pardon and sanctify me.",
+          "4) To that old rugged cross, I will ever be true,\nits shame and reproach gladly bear;\nthen he'll call me some day to my home far away,\nwhere his glory forever, I'll share."
+        ]
+      },
+      {
+        id: "bridal-march",
+        type: "hymn",
+        title: "Bridal March Hymn AMR 678",
+        twoColumn: true,
+        verses: [
+          "1) In Christ alone my hope is found;\nHe is my light, my strength, my song;\nthis Cornerstone, this solid ground,\nfirm through the fiercest drought and storm.\nWhat heights of love, what depths of peace\nwhen fears are stilled, when strivings cease;\nmy Comforter, my All in All;\nhere in the love of Christ I stand.",
+          "2) In Christ alone who took on flesh;\nfullness of God in helpless babe.\nThis gift of love and righteousness\nscorned by the ones He came to save;\n'til on that cross as Jesus died\nthe wrath of God was satisfied;\nfor ev'ry sin on Him was laid;\nhere in the death of Christ, I live.",
+          "3) There in the ground His body lay;\nLight of the world by darkness slain.\nThen bursting forth in glorious day,\nup from the grave He rose again!\nAnd as He stands in victory,\nsin's curse has lost its grip on me;\nfor I am His and He is mine,\nbought with the precious blood of Christ!",
+          "4) No guilt in life, no fear in death;\nthis is the pow'r of Christ in me.\nFrom life's first cry to final breath,\nJesus commands my destiny.\nNo pow'r of hell, no scheme of man\ncan ever pluck me from His hand;\n'til He returns or calls me home,\nhere in the pow'r of Christ I'll stand!"
+        ]
+      },
+      {
+        id: "exhortation",
+        type: "ceremony-text",
+        title: "Exhortation",
+        paragraphs: [
+          "*The congregation remains standing as the bride and groom stand before the Priest*",
+          "**Priest:** Dear people of God, we have come together in the presence of God to witness and to celebrate the marriage between **KENECHUKWU** and **OZIOMA** to ask His blessings upon them and to share in their Joy. Our Lord Jesus Christ was Himself a guest at the wedding in Canaan of Galilee and blessed this way of life and through His Spirit He is with us now.",
+          "The Scripture teaches us that marriage is a gift of God in creation and a means of His grace, a holy mystery in which a man and woman become one flesh. It is God's purpose that as husband and wife give themselves to each other in love through their lives, they shall be united in their love as Christ is united with His Church.",
+          "Marriage is given primarily so that husband and wife may have comfort and help each other, living faithfully together in need and in plenty, in sorrow and in joy. It is also given that with delight and tenderness, they may know each other in love, and through the joy of their bodily union, may strengthen the union of their hearts and lives.",
+          "Lastly, it is given that they may have children and be blessed in caring for them and bringing them up in accordance with God's will to His praises and glory.",
+          "In marriage, husband and wife belong to each other and they are linked to each other's family and they begin a new life together in the community. This is a way of life that all should honour and it must not be taken carelessly, lightly or selfishly but reverently, responsibly and after serious thoughts. Into this life **KENECHUKWU** and **OZIOMA** come now to be joined. If any of you can show just cause why they may not be lawfully joined together you may declare it now."
+        ]
+      },
+      {
+        id: "declaration",
+        type: "ceremony-text",
+        title: "4. Declaration",
+        paragraphs: [
+          "**The Priest Says:** **KENECHUKWU and OZIOMA**, the vows you are about to take now are to be made in the name of God and I charge you both as you will answer before God who is the Judge of all and who knows all the secrets of our hearts, that if either of you know any reasons why you may not be lawfully married, you must declare it now.",
+          "*(If there is no impediment declared, the priest continues.)*",
+          "*(The Priest says to the Groom)*\n**KENECHUKWU**, of your own free choice will you take **OZIOMA** to be your wife?",
+          "**The Groom Answers:** I will",
+          "*(The Priest Continues)*\nWill you love her, comfort her, honour and protect her, in sickness and in health, in poverty and prosperity and forsaking all others, be faithful to her as long as you both shall live?",
+          "**The Groom Answers:** I will",
+          "*(The Priest continues)*\n**OZIOMA**, of your own free choice will you take **KENECHUKWU** to be your Husband?",
+          "**The Bride Answers:** I will",
+          "Will you love him, comfort him, honour and protect him, in sickness and in health, in poverty and prosperity and forsaking all others, be faithful to him as long as you both shall live?",
+          "**The Bride Answers:** I will"
+        ]
+      },
+      {
+        id: "the-marriage",
+        type: "ceremony-text",
+        title: "The Marriage",
+        paragraphs: [
+          "*(The Priest asks)*\nWho gives this woman to be married to this man?\n*(The father of the bride or the representative of the family comes out and shall answer: \"I do\"; he then hands over the Bride to the Priest.)*",
+          "*(The Priest receiving the bride from the hand of her father shall cause the man to take the woman by his right hand and facing each other the groom says)*",
+          "I KENECHUKWU take you OZIOMA to be my wedded wife, to have and to hold from this day forward: for better, for worse, for richer, for poorer, in sickness and in health, to love and to cherish, until we are parted by death according to God's Holy law. This is my solemn vow. Amen",
+          "*They lose hands. Then the bride takes the groom's right hand in hers, and says:*",
+          "I, OZIOMA take you KENECHUKWU, to be my wedded husband, to have and to hold from this day forward: for better, for worse, for richer, for poorer, in sickness and in health, to love and to cherish, until we are parted by death according to God's Holy law. This is my solemn vow. Amen",
+          "*(They lose hands)*",
+          "**The Priest:** And what token do you share to represent your love and commitment to each other?",
+          "*(The Priest receives the ring. Holding up the ring, says)*\nThe ring is the symbol of wholeness and perfection. It is made of gold which is a precious and durable metal, what better representation of your feelings for each other."
+        ]
+      },
+      {
+        id: "the-marriage-contd",
+        type: "ceremony-text",
+        title: "The Marriage (Contd.)",
+        paragraphs: [
+          "Then he prays:\nHeavenly Father, by your blessing, let these ring be to **KENECHUKWU** and **OZIOMA**, a symbol of unending love and faithfulness, to remind them of the vow and covenant which they have made this day, through Jesus Christ our Lord Amen.",
+          "The Priest delivers the ring to the man and to put upon the forth finger of the woman's left hand, and the man holding the ring there shall say:\n**OZIOMA**, I give you this ring as a sign of our marriage and a token of my love and fidelity to you. With my body I honour you, all that I am I give to you, and all that I have I share with you, within the love of God, the Father, Son and Holy Spirit. Amen.",
+          "The Priest delivers the ring to the woman to put upon the forth finger of the man's left hand and says: **KENECHUKWU**, I give you this ring as a sign of our marriage and a token of my love and fidelity to you. With my body I honour you, all that I am I give to you and all that I have I share with you, within the love of God, the Father, Son and Holy Spirit. Amen.",
+          "*(The bride and groom kneel; while the congregation keeps standing. The Priest prays;)*",
+          "Eternal God, Creator and Preserver of all, Giver of spiritual grace, and Author of everlasting life, send Your blessing upon **KENECHUKWU** and **OZIOMA** whom we bless in your name that living faithfully together they may fulfill the vow and covenant they made of which the ring given and received is a token and pledge and may ever remain in perfect love and peace together and live according to your laws; through Christ our Lord. Amen."
+        ]
+      },
+      {
+        id: "the-marriage-contd-2",
+        type: "ceremony-text",
+        title: "The Marriage (Contd.)",
+        paragraphs: [
+          "Now that **KENECHUKWU and OZIOMA** have given their consent and made their vows to each other before God and this congregation, with the joining of hands and the giving and receiving of ring, in the name of God, I declare that they are Husband and wife!",
+          "*(The Priest joins their right hands together and says :)*\nThose whom God has joined together, let no man put asunder. Amen",
+          "**The Priest blesses them:**\nGod the Father, God the Son, God the Holy Spirit, bless, preserve, and keep you; The Lord pour upon you the riches of His grace that you may faithfully live together and receive the blessings of eternal life. Amen",
+          "**The Priest then invites and says to the parents:**\nAs **KENECHUKWU and OZIOMA** enter a new life together, will you their parents give them your blessing in the presence of this congregation?",
+          "**The parents pray for the couple saying:**\nMay God bless you both. Amen",
+          "**The congregation stands, the priest then asks:**\nYou as friends and families have come to witness this exchange of vows. Will you do all in your power to support this marriage now and in the years ahead?",
+          "*The People reply: We will*",
+          "The congregation remains standing: The husband and wife kneel, and the priest blesses them: you; the Lord mercifully grant you riches of His grace, that you may please Him both in body and soul, and living together in faith and love, may receive the blessings of eternal life. Amen"
+        ]
+      },
+      {
+        id: "acclamation",
+        type: "ceremony-text",
+        title: "6) The Acclamation",
+        paragraphs: [
+          "*(The Parents of the Bridegroom or their representatives will move forward.)*",
+          "**The Priest:** In the name of God and in the presence of this congregation, we hand over former **MISS OZIOMA**, now **MRS. OZIOMA KENECHUKWU IBEKWE** to you as a full member of your family. Will you promise on behalf of your family to continue to up-hold them in your prayer and give them your moral support?",
+          "**The Parents of the Groom:** We promise in the name of God.",
+          "*(The priest then prays for the family):* Eternal God, Creator and Sustainer of us all, give your grace to the family of **MR. & MRS. KENECHUKWU IBEKWE**, grant them that in the years ahead they may live together in the love, joy and peace of our Saviour Jesus Christ. Amen"
+        ]
+      },
+      {
+        id: "nuptial-psalm",
+        type: "reading",
+        title: "7) Nuptial Psalm 128",
+        verses: [
+          "1. Blessed is every one that feareth the Lord; that walketh in his ways.",
+          "2. For thou shalt eat the labour of thine hands; happy shalt thou be, and it shall well with thee.",
+          "3. Thy wife shall be as a fruitful vine by the sides of thine house: thy children like olive plants round about thy table.",
+          "4. Behold, that thus shall the man be blessed that feareth the Lord.",
+          "5. The Lord shall bless thee out of Zion: and thou shalt see the good the good of Jerusalem all the days of thy life.",
+          "6. Yea, thou shalt see the children's children, and peace upon Israel."
+        ]
+      },
+      {
+        id: "only-lesson",
+        type: "reading",
+        title: "8) Only Lesson: Ephesians 5: 21-25",
+        verses: [
+          "21. Submitting to one another in the fear of God.",
+          "22. Wives, submit to your own husbands, as to the Lord.",
+          "23. For the husband is the head of the wife, as also Christ is the head of the church; and He is the savior of the body.",
+          "24. Therefore, just as the Church is subject to Christ, so let the wives be to their own husbands in everything.",
+          "25. Husbands, love your wives, just as Christ also loved the church and gave Himself for her."
+        ]
+      },
+      {
+        id: "hymn-for-sermon",
+        type: "hymn",
+        title: "Hymn for Sermon: AMR 650",
+        refrain: "Great is thy faithfulness! Great is thy faithfulness!\nMorning by morning new mercies I see;\nall I have needed thy hand hath provided,\ngreat is thy faithfulness, Lord, unto me.",
+        verses: [
+          "1) Great is thy faithfulness, O God my Father,\nthere is no shadow of turning with thee; thou changest not,\nthy compassions they fail not, as thou hast\nbeen thou for ever wilt be.",
+          "2) Summer and winter, and spring-time and harvest,\nsun, moon and stars in their courses above,\njoin with all nature in manifold witness\nto thy great faithfulness, mercy and love.",
+          "3) Pardon for sin and a peace that endureth,\nthine own dear presence to cheer and to guide;\nstrength for today and bright hope for tomorrow,\nblessings all mine, with ten thousand beside!"
+        ]
+      },
+      {
+        id: "sermon-anthems",
+        type: "simple-list",
+        title: "Order of Service",
+        items: [
+          "10. Sermon",
+          "11. Anthems",
+          "12. Notices",
+          "13. Thanksgiving – Band"
+        ]
+      },
+      {
+        id: "hymn-for-prayer",
+        type: "hymn",
+        title: "14. Hymn for Prayer – A&M 463",
+        verses: [
+          "1. Oh perfect love, all human thought transcending,\nLowly we kneel in prayer before thy throne,\nThat theirs may be the love which knows no ending,\nWhom thou for evermore dost join in one.",
+          "2. O perfect life, be thou their full assurance,\nOf tender charity and steadfast faith,\nOf patient hope, and quiet brave endurance,\nWith childlike trust that fears nor pain death.",
+          "3. Grant them the joy which brightens Earthly sorrow,\nGrant them the peace which calms all earthly strife;\nAnd to life's day the glorious unknown morrow\nThat damns upon eternal love and life."
+        ]
+      },
+      {
+        id: "prayer-for-couple",
+        type: "ceremony-text",
+        title: "15) Prayer for the Couple",
+        paragraphs: [
+          "Almighty and most merciful Father, the strength of all who put their trust in you, we pray that, as you have brought **KENECHUKWU** and **OZIOMA** together by your providence, so you will enrich them by your grace, so that those vows which they have made to one another in your sight, they may truly and faithfully perform through Jesus Christ our Lord, Amen.",
+          "Almighty Father, you have created all mankind to glorify you in body and in spirit. Give this your children joy in one another, as living temples of the Holy spirit, and bring them by this joy to know and share in your creative and redeeming love through Jesus Christ our Lord, Amen.",
+          "Eternal God, true and loving Father, in holy marriage you make your servants one, may their life together bear witness to your love in this troubled world, may unity overcome division, forgiveness, heal injury, and joy triumph over sorrow, through Jesus Christ our Lord, Amen.",
+          "We praise you, Father that you have made all things and hold all things in being, in the beginning you created the universe, and made mankind in your own likeness because it was not good for them to be alone, you created them male and female and in marriage you join man and woman as one flesh, teaching us that what you have united may never be divided. We praise you that you have made this holy misery a symbol of marriage of Christ with his church, and an image of your eternal covenant with your people. And we praise you that you have made this man and woman, who come before you as partners and heirs together of your promises."
+        ]
+      },
+      {
+        id: "prayer-for-couple-contd",
+        type: "ceremony-text",
+        title: "Prayer for the Couple (Contd.)",
+        paragraphs: [
+          "Grant that this man may love his wife as Christ loves His Bride the Church, giving himself for it, and cherishing it as his own flesh; and grant this woman the heart to love her husband and follow the example of those holy women whose praises are sung in the scriptures. Strengthen them with your grace that they may be witness of Christ to others, let them live to see their children's children and bring them at last to the fullness of life with your saints in the kingdom of heaven, through Jesus Christ. Amen.",
+          "O God of love, look merciful upon **KENECHUKWU** and **OZIOMA** in the new life which they begin together this day. Unite them evermore in your love. Keep them faithful to the vows they have made to one another. Strengthen them with every good gift and let your peace be with them for the sake of Jesus Christ our Lord. Amen.",
+          "Almighty God, our heavenly Father, who gave marriage as a source of blessing to mankind, we thank you for the joy of family life. May we know your presence and peace in our homes, fill them with your love, and use them for your glory, through Jesus Christ. Amen."
+        ]
+      },
+      {
+        id: "closing-items",
+        type: "simple-list",
+        title: "Order of Service",
+        items: [
+          "14. Signing of Marriage Register",
+          "15. Presentation of the Couple",
+          "16. Closing Prayer/Benediction",
+          "17. Withdrawal Hymn"
+        ]
+      },
+      {
+        id: "order-of-photograph",
+        type: "heading-only",
+        title: "Order of Photograph"
+      },
+      {
+        id: "bridal-crew",
+        type: "heading-only",
+        title: "Bridal Crew"
+      },
+      {
+        id: "appreciation",
+        type: "heading-only",
+        title: "Appreciation"
+      },
+      {
+        id: "reception-program",
+        type: "heading-only",
+        title: "Reception Program"
+      }
+    ],
+    closing: { message: "Thank You For Joining Us" },
+    watermarkImage: "/images/ozi-kene-proposal-images/836a8d83-f919-4b2e-a331-445bc224fb24.JPG"
   },
   foodMenu: {
     sections: [

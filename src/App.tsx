@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import MainPage from './pages/MainPage';
 import FoodMenuPage from './pages/FoodMenuPage';
+import WeddingProgrammePage from './pages/WeddingProgrammePage';
 import RsvpPage from './pages/RsvpPage';
 import AdminLoginPage from './pages/admin/AdminLoginPage';
 import DashboardPage from './pages/admin/DashboardPage';
@@ -18,6 +19,7 @@ function App() {
           {/* Main single-page routes */}
           <Route path="/" element={<MainPage />} />
           <Route path="/food-menu" element={<FoodMenuPage />} />
+          <Route path="/wedding-programme" element={<WeddingProgrammePage />} />
           <Route path="/rsvp/:guestId" element={<RsvpPage />} />
 
           {/* Admin routes */}
